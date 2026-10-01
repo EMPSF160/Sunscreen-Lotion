@@ -332,48 +332,15 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--c-carbon-muted);
-/* Navigation Menu - Desktop View (> 1024px) */
+  margin-top: 2px;
+}
+
+/* Corner Navigation: Hide standard inline menu to keep top bar minimalist & floating */
 .nav-menu {
-  display: flex;
-  align-items: center;
-  gap: clamp(10px, 1.5vw, 22px);
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  display: none !important;
 }
 
-.nav-link-item {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--c-carbon);
-  transition: color var(--transition-fast);
-  padding: 6px 4px;
-  position: relative;
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-.nav-link-item:hover {
-  color: var(--c-solar-deep);
-}
-
-.nav-link-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--c-solar-orange);
-  transition: width var(--transition-fast);
-}
-
-.nav-link-item:hover::after,
-.nav-link-item.active::after {
-  width: 100%;
-}
-
-/* Nav Actions - Desktop View */
+/* Nav Actions - Sleek Corner Hamburger Trigger */
 .nav-actions {
   display: flex;
   align-items: center;
@@ -381,9 +348,13 @@ body {
   flex-shrink: 0;
 }
 
+.nav-actions > *:not(.mobile-toggle):not(.corner-menu-trigger) {
+  display: none !important;
+}
+
 .mobile-toggle,
 .corner-menu-trigger {
-  display: none;
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
   background: rgba(255, 255, 255, 0.7);
@@ -408,13 +379,6 @@ body {
   border-color: var(--c-carbon);
   transform: scale(1.06);
   box-shadow: 0 6px 16px rgba(30, 30, 27, 0.2);
-}
-
-@media (min-width: 1025px) {
-  .mobile-toggle,
-  .corner-menu-trigger {
-    display: none !important;
-  }
 }
 
 .uv-badge-pill {
@@ -2921,13 +2885,12 @@ h1,
   }
 
   /* Hide all extra navbar actions, buttons, badges, icons */
-  .nav-actions > *:not(.mobile-toggle):not(.corner-menu-trigger) {
+  .nav-actions > *:not(.mobile-toggle) {
     display: none !important;
   }
 
   /* Show Hamburger Button on Right */
-  .mobile-toggle,
-  .corner-menu-trigger {
+  .mobile-toggle {
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
