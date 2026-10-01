@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOLVÉA — Clinical Skincare × Sun Protection SPF 50+</title>
+  <meta name="description" content="SOLVÉA: Dermatologist-developed clinical sun protection, broad-spectrum SPF 50+, invisible matte fluids, 100% mineral zinc, and live UV Index skincare intelligence.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  
+  <!-- Font Awesome & Bootstrap Grid -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css">
+  <!-- Master Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div>
+        <span>☀️ <strong>LIVE UV ADVISORY:</strong> UV <span class="live-uv-num">7.4</span> High in your area. Reapply every 2 hours.</span>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-3">
+        <span>Free Clinical Delivery on $45+</span>
+        <a href="subscriptions.html">Subscribe & Save 15%</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Main -->
+  <header class="header-main">
+    <div class="header-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo">
+        <span class="brand-logo-text">SOLVÉA <span class="sun-dot"></span></span>
+        <span class="brand-logo-tag">Clinical Photoprotection</span>
+      </a>
+
+      <!-- Navigation Menu -->
+      <ul class="nav-menu">
+        <li><a href="shop.html" class="nav-link-item">Shop Sunscreens</a></li>
+        <li><a href="uv-guide.html" class="nav-link-item">UV Index Guide</a></li>
+        <li><a href="skin-guide.html" class="nav-link-item">Skin & Sun Guide</a></li>
+        <li><a href="subscriptions.html" class="nav-link-item">Subscriptions</a></li>
+        <li><a href="wholesale.html" class="nav-link-item">Bulk & Pro</a></li>
+        <li><a href="about.html" class="nav-link-item">About</a></li>
+        <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+      </ul>
+
+      <!-- Action Items -->
+      <div class="nav-actions">
+        <!-- Live UV Pill -->
+        <a href="uv-guide.html" class="uv-badge-pill" title="View live UV index intelligence">
+          <span class="uv-indicator-dot"></span>
+          <span>UV <span class="live-uv-status">7.4 (High)</span></span>
+        </a>
+
+        <!-- Find Your SPF Quiz Button -->
+        <button class="btn-solvea btn-primary-solar btn-sm d-none d-lg-inline-flex" data-open-quiz>
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Find Your SPF
+        </button>
+
+        <!-- Wishlist -->
+        <a href="dashboard.html#saved" class="action-btn" title="Saved Routine">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count wishlist-count-badge" style="display:none;">0</span>
+        </a>
+
+        <!-- Account -->
+        <a href="dashboard.html" class="action-btn" title="My Account">
+          <i class="fa-regular fa-user"></i>
+        </a>
+
+        <!-- Cart Drawer Toggle -->
+        <button class="action-btn" data-open-cart title="Shopping Bag">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('d-flex')">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-wrapper">
+    <div class="hero-bg-accent"></div>
+    <div class="hero-grid">
+      <!-- Hero Copy -->
+      <div class="hero-content">
+        <div class="hero-tag">
+          <i class="fa-solid fa-shield-halved"></i> Dermatological Photoprotection
+        </div>
+        <h1 class="hero-title">
+          Protect Your Skin. <br>
+          <span class="highlight">Every Single Day.</span>
+        </h1>
+        <p class="hero-desc">
+          High-performance clinical SPF 50+ broad spectrum defense engineered with tri-filter photostable science. Weightless hydration, zero white cast, and instant environmental cellular protection.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="shop.html" class="btn-solvea btn-primary-solar btn-lg">
+            Shop Clinical SPF <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <button class="btn-solvea btn-outline-carbon btn-lg" data-open-quiz>
+            <i class="fa-solid fa-dna"></i> Take 60s SPF Diagnostic
+          </button>
+        </div>
+
+        <div class="hero-proof-bar">
+          <div class="proof-item">
+            <span class="proof-number">99.2%</span>
+            <span class="proof-label">UVB Photon Block</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">PA++++</span>
+            <span class="proof-label">Maximum UVA Defense</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">100%</span>
+            <span class="proof-label">Reef-Safe Certified</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">0%</span>
+            <span class="proof-label">White Cast Guaranteed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual + Floating Intelligence Card -->
+      <div class="hero-media-container">
+        <div class="hero-image-card">
+          <img src="imaghe/pexels-mearlywan-307951439-16378484.jpg" alt="SOLVÉA Hydro-Shield SPF 50+ Sunscreen Lotion">
+        </div>
+
+        <!-- Floating Live UV Intelligence Card -->
+        <div class="hero-uv-card">
+          <div class="hero-uv-header">
+            <span class="hero-uv-title">Live Solar Radar</span>
+            <span class="hero-uv-live"><i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i> Active</span>
+          </div>
+          <div class="hero-uv-value-box">
+            <span class="hero-uv-num">7.4</span>
+            <span class="hero-uv-category">High UV Danger</span>
+          </div>
+          <p class="hero-uv-tip">
+            Skin barrier burn risk in 20 min. Apply <strong>SPF 50+ Hydro-Shield</strong> and reapply every 90 min.
+          </p>
+          <div style="margin-top: 10px;">
+            <a href="uv-guide.html" style="font-size: 0.75rem; font-weight: 700; color: var(--c-solar-deep); text-decoration: underline;">Open UV Intelligence Tool →</a>
+          </div>
+        </div>
+
+        <!-- Clean Eco Badge -->
+        <div class="hero-clean-badge d-none d-sm-flex">
+          <i class="fa-solid fa-seedling"></i>
+          <div>
+            <span>100% Marine &amp; Reef-Safe</span>
+            <div style="font-size: 0.68rem; color: var(--c-carbon-muted);">Zero Oxybenzone / Octinoxate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPF Quick Filters -->
+  <section class="spf-filter-section">
+    <div class="filter-bar-inner">
+      <div class="filter-bar-label">
+        <i class="fa-solid fa-sliders" style="color: var(--c-solar-deep);"></i>
+        <span>Filter Protection Level:</span>
+      </div>
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter-spf="all">All Formulations</button>
+        <button class="filter-pill solar-pill" data-filter-spf="50+">SPF 50+ Maximum</button>
+        <button class="filter-pill" data-filter-spf="50">SPF 50 Pure Mineral</button>
+        <button class="filter-pill" data-filter-spf="30">SPF 30 Peptide Glow</button>
+        <button class="filter-pill" data-filter-spf="after-sun">Post-Sun Cica</button>
+      </div>
+      <div>
+        <a href="shop.html" style="font-size: 0.85rem; font-weight: 700; color: var(--c-carbon); text-decoration: underline;">View All 8 Clinical Formulas →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="section-wrapper">
+    <div class="section-head">
+      <span class="section-tag">Clinical Formulations</span>
+      <h2 class="section-title">Engineered for Daily Cellular Defense</h2>
+      <p class="section-desc">Developed with board-certified dermatologists. Pure broad-spectrum photostability without clogging pores or leaving residues.</p>
+    </div>
+
+    <!-- Product Grid Container (Populated via data.js & main.js) -->
+    <div class="product-grid" id="home-featured-products"></div>
+
+    <div class="text-center mt-5">
+      <a href="shop.html" class="btn-solvea btn-carbon btn-lg">
+        Explore Complete Sunscreen Collection <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Interactive UV Intelligence & Reapplication Section -->
+  <section class="uv-intelligence-section">
+    <div class="section-head">
+      <span class="section-tag">Skincare Intelligence</span>
+      <h2 class="section-title">Real-Time UV Index &amp; Protection Protocol</h2>
+      <p class="section-desc">UV radiation is invisible but constant even through cloud cover. Select your current UV level to unlock tailored clinical protocol.</p>
+    </div>
+
+    <div class="uv-dashboard-card">
+      <div class="row align-items-center mb-4">
+        <div class="col-md-7">
+          <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.25rem;">Interactive UV Severity Scale</h3>
+          <p style="font-size: 0.88rem; color: var(--c-carbon-muted); margin-bottom: 0;">Click any UV tier below to see dermatologist-grade shielding instructions:</p>
+        </div>
+        <div class="col-md-5 text-md-end mt-3 mt-md-0">
+          <a href="uv-guide.html" class="btn-solvea btn-primary-solar btn-sm">
+            <i class="fa-solid fa-location-crosshairs"></i> Launch Smart UV Radar
+          </a>
+        </div>
+      </div>
+
+      <!-- UV Scale Step Selector -->
+      <div class="uv-scale-bar">
+        <div class="uv-scale-step uv-low" onclick="showUVInfo(0)">
+          <div class="uv-step-num">0 - 2</div>
+          <div class="uv-step-name">Low UV</div>
+        </div>
+        <div class="uv-scale-step uv-moderate" onclick="showUVInfo(1)">
+          <div class="uv-step-num">3 - 5</div>
+          <div class="uv-step-name">Moderate</div>
+        </div>
+        <div class="uv-scale-step uv-high active" onclick="showUVInfo(2)">
+          <div class="uv-step-num">6 - 7</div>
+          <div class="uv-step-name">High UV</div>
+        </div>
+        <div class="uv-scale-step uv-very-high" onclick="showUVInfo(3)">
+          <div class="uv-step-num">8 - 10</div>
+          <div class="uv-step-name">Very High</div>
+        </div>
+        <div class="uv-scale-step uv-extreme" onclick="showUVInfo(4)">
+          <div class="uv-step-num">11+</div>
+          <div class="uv-step-name">Extreme</div>
+        </div>
+      </div>
+
+      <!-- Dynamic UV Detail Panel -->
+      <div class="uv-detail-panel" id="uv-interactive-panel">
+        <div>
+          <span class="badge-clinical badge-solar" id="uv-panel-badge" style="margin-bottom: 0.75rem;">Selected: UV 6 - 7 (High Danger)</span>
+          <h3 id="uv-panel-title" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem;">High Solar Radiation Protocol</h3>
+          <p id="uv-panel-desc" style="font-size: 0.92rem; color: var(--c-carbon-soft); margin-bottom: 1.25rem;">
+            Skin barrier burn risk within 20 minutes for Fitzpatrick I-III. Intense UVA causes silent collagen breakdown and deep DNA mutations.
+          </p>
+          <ul id="uv-panel-bullets" style="padding-left: 1.2rem; font-size: 0.88rem; color: var(--c-carbon); display: flex; flex-direction: column; gap: 6px;">
+            <li>Mandatory SPF 50+ application 15 minutes prior to sun contact</li>
+            <li>Reapply every 90 minutes if outdoors or after 80 min of sweating</li>
+            <li>Wear UV400 sunglasses to protect ocular retina and delicate eyelid skin</li>
+          </ul>
+        </div>
+        <div style="background: #fff; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--c-border); text-align: center;">
+          <div style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; color: var(--c-carbon-muted); margin-bottom: 0.5rem;">Recommended Prescription Formula</div>
+          <img id="uv-panel-img" src="imaghe/pexels-mearlywan-307951439-16378484.jpg" alt="Recommended Sunscreen" class="product-showcase-box-img" style="max-width: 120px; margin-bottom: 0.75rem;">
+          <div id="uv-panel-product-name" style="font-weight: 800; font-size: 1.05rem; margin-bottom: 2px;">Hydro-Shield Invisible Fluid SPF 50+</div>
+          <div style="font-size: 0.82rem; color: var(--c-solar-deep); font-weight: 700; margin-bottom: 1rem;">Broad Spectrum PA++++</div>
+          <button class="btn-solvea btn-carbon btn-sm w-100" onclick="addToCart('solvea-hydro-shield-spf50')">
+            Add To Bag ($34.00)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skin-Type Selector & 2-Finger Rule Masterclass -->
+  <section class="section-wrapper">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div style="position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg);">
+          <img src="imaghe/suncademy-suncare-WKCXM67lIC0-unsplash.jpg" alt="2-Finger Sunscreen Application Rule" class="story-feature-img">
+          <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); padding: 1.25rem; border-radius: var(--radius-lg); border: 1px solid var(--c-border);">
+            <div style="font-size: 0.74rem; font-weight: 800; color: var(--c-solar-deep); text-transform: uppercase; letter-spacing: 0.08em;">Clinical Application Rule</div>
+            <div style="font-weight: 800; font-size: 1.1rem; color: var(--c-carbon);">The 2-Finger Dose (1/4 Teaspoon)</div>
+            <p style="font-size: 0.82rem; color: var(--c-carbon-muted); margin: 4px 0 0;">Dispense two full lengths across index and middle fingers to achieve true bottle-tested SPF 50+ protection for face and neck.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <span class="section-tag">Clinical Science</span>
+        <h2 class="section-title">Zero Compromise on Barrier Compatibility</h2>
+        <p class="section-desc mb-4">
+          Most sunscreens fail because people dislike the heavy, chalky, or greasy texture. SOLVÉA pairs medical-grade UV filters with skin-identical biomimetic lipids so your sunscreen doubles as your favorite morning serum.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--c-sun-cream); display: flex; align-items: center; justify-content: center; color: var(--c-solar-deep); font-size: 1.1rem; flex-shrink: 0;">
+              <i class="fa-solid fa-droplet"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 2px;">4D Hyaluronic Acid Matrix</h4>
+              <p style="font-size: 0.85rem; color: var(--c-carbon-muted); margin-bottom: 0;">Penetrates 4 layers of the epidermis to lock moisture in for 24 hours under active sun and wind.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--c-eco-sage-light); display: flex; align-items: center; justify-content: center; color: var(--c-eco-sage-dark); font-size: 1.1rem; flex-shrink: 0;">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 2px;">100% Non-Nano Micronized Zinc</h4>
+              <p style="font-size: 0.85rem; color: var(--c-carbon-muted); margin-bottom: 0;">Gentle enough for eczema, rosacea, post-laser, and infant skin from 6 months old.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--c-sun-cream); display: flex; align-items: center; justify-content: center; color: var(--c-solar-deep); font-size: 1.1rem; flex-shrink: 0;">
+              <i class="fa-solid fa-dna"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 2px;">Ectoin Cellular DNA Antioxidant</h4>
+              <p style="font-size: 0.85rem; color: var(--c-carbon-muted); margin-bottom: 0;">Blocks environmental smog, particulate matter, and digital blue light HEV photons.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <a href="skin-guide.html" class="btn-solvea btn-outline-carbon">
+            Read Dermatologist Skin Guide →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription Banner CTA -->
+  <section class="section-wrapper" style="padding-top: 0;">
+    <div style="background: linear-gradient(135deg, var(--c-carbon) 0%, #2D2D27 100%); border-radius: var(--radius-xl); padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 3.5vw, 3rem); color: #fff; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(244,162,97,0.3) 0%, transparent 70%); border-radius: 50%;"></div>
+      
+      <div class="row align-items-center g-4 position-relative" style="z-index: 2;">
+        <div class="col-lg-7">
+          <span class="badge-clinical badge-solar" style="background: rgba(244,162,97,0.2); color: var(--c-solar-orange); border:none; margin-bottom: 1rem;">SOLVÉA AUTO-SHIELD REPLENISHMENT</span>
+          <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #fff; font-weight: 800; margin-bottom: 1rem;">
+            Never Run Out of Daily SPF.<br>
+            <span style="color: var(--c-solar-orange); font-family: var(--font-serif); font-style: italic;">Save 15% on Every Shipment.</span>
+          </h2>
+          <p style="color: var(--c-carbon-light); font-size: 1.02rem; max-width: 540px; margin-bottom: 2rem;">
+            Choose 30, 60, or 90-day delivery cycles. Enjoy free priority shipping, complimentary full-size summer gifts, and the freedom to pause or skip anytime.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="subscriptions.html" class="btn-solvea btn-primary-solar btn-lg">
+              Configure Auto-Shield Plan
+            </a>
+            <a href="shop.html" class="btn-solvea btn-outline-carbon btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.4);">
+              Explore Products
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center">
+          <img src="imaghe/arthur-pereira-9DAqQ3s9Wd0-unsplash.jpg" alt="SOLVÉA Subscription Box" class="product-showcase-box-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dermatologist & Athlete Reviews -->
+  <section class="section-wrapper">
+    <div class="section-head">
+      <span class="section-tag">Clinical Feedback</span>
+      <h2 class="section-title">Endorsed by Dermatologists &amp; Athletes</h2>
+      <p class="section-desc">Over 10,000+ daily wearers trust SOLVÉA for zero cast, zero eye stinging, and high-altitude defense.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div style="background: var(--c-clean-white); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--c-border); height: 100%; display: flex; flex-direction: column;">
+          <div style="color: var(--c-solar-orange); margin-bottom: 0.85rem; font-size: 0.9rem;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="font-size: 0.9rem; font-style: italic; color: var(--c-carbon); flex-grow: 1; margin-bottom: 1.25rem; line-height: 1.55;">
+            "SOLVÉA has achieved what dermatologists have begged for: an SPF 50+ that feels like pure water, leaves zero cast on Fitzpatrick VI skin, and zero eye burn. My #1 clinical recommendation."
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--c-border); padding-top: 1rem; margin-top: auto;">
+            <img src="imaghe/dianna-hodza-ltD_YyqonHg-unsplash.jpg" alt="Dr Elena Rostova" class="reviewer-avatar-img">
+            <div>
+              <div style="font-weight: 800; font-size: 0.9rem;">Dr. Elena Rostova, MD</div>
+              <div style="font-size: 0.74rem; color: var(--c-carbon-muted);">Board-Certified Dermatologist</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div style="background: var(--c-clean-white); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--c-border); height: 100%; display: flex; flex-direction: column;">
+          <div style="color: var(--c-solar-orange); margin-bottom: 0.85rem; font-size: 0.9rem;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="font-size: 0.9rem; font-style: italic; color: var(--c-carbon); flex-grow: 1; margin-bottom: 1.25rem; line-height: 1.55;">
+            "Ran 22 miles in 88-degree heat. Not a single drip into my eyes and zero sunburn on my shoulders. The compressed air mist is brilliant and doesn't leave slippery residue."
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--c-border); padding-top: 1rem; margin-top: auto;">
+            <img src="imaghe/pexels-armin-rimoldi-5269664.jpg" alt="Marcus Chen" class="reviewer-avatar-img">
+            <div>
+              <div style="font-weight: 800; font-size: 0.9rem;">Marcus Chen</div>
+              <div style="font-size: 0.74rem; color: var(--c-carbon-muted);">Ultra-Marathoner &amp; Coach</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div style="background: var(--c-clean-white); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--c-border); height: 100%; display: flex; flex-direction: column;">
+          <div style="color: var(--c-solar-orange); margin-bottom: 0.85rem; font-size: 0.9rem;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="font-size: 0.9rem; font-style: italic; color: var(--c-carbon); flex-grow: 1; margin-bottom: 1.25rem; line-height: 1.55;">
+            "The iron oxides in the Tinted Mineral Shield have prevented my recurring summer melasma completely. It replaces heavy foundation and makes my skin look radiant."
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--c-border); padding-top: 1rem; margin-top: auto;">
+            <img src="imaghe/pexels-anntarazevich-7466775.jpg" alt="Sophie Van Der Bilt" class="reviewer-avatar-img">
+            <div>
+              <div style="font-weight: 800; font-size: 0.9rem;">Sophie Van Der Bilt</div>
+              <div style="font-size: 0.74rem; color: var(--c-carbon-muted);">Verified Patient &amp; Advocate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Universal Footer -->
+  <footer class="footer-main">
+    <div class="footer-grid">
+      <!-- Col 1: Brand -->
+      <div>
+        <div class="footer-brand-title">SOLVÉA <span style="color: var(--c-solar-orange);">●</span></div>
+        <p class="footer-tagline">
+          Protect Your Skin. Every Day.<br>
+          Clinical Skincare × Modern Beauty × Sunlight × Clean Science.
+        </p>
+        <div class="footer-social-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA X (Twitter)" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Shop -->
+      <div>
+        <div class="footer-col-title">Formulations</div>
+        <ul class="footer-links">
+          <li><a href="shop.html?spf=50">Hydro-Shield SPF 50+</a></li>
+          <li><a href="shop.html?type=mineral">Mineral Pure Barrier SPF 50</a></li>
+          <li><a href="shop.html?category=body">Solar Aerosol-Free Mist</a></li>
+          <li><a href="shop.html?spf=30">Peptide Glow SPF 30</a></li>
+          <li><a href="shop.html?type=tinted">Tinted Mineral Shield</a></li>
+          <li><a href="shop.html?category=after-sun">Post-Sun Cica Rescue</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Intelligence -->
+      <div>
+        <div class="footer-col-title">Sun Intelligence</div>
+        <ul class="footer-links">
+          <li><a href="uv-guide.html">Live UV Index Radar</a></li>
+          <li><a href="skin-guide.html">Fitzpatrick Skin Guide</a></li>
+          <li><a href="skin-guide.html#reapply">Reapplication Calculator</a></li>
+          <li><a href="#" data-open-quiz>Take SPF Diagnostic Quiz</a></li>
+          <li><a href="about.html#science">Clinical Lab Whitepapers</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Corporate -->
+      <div>
+        <div class="footer-col-title">Client Care</div>
+        <ul class="footer-links">
+          <li><a href="dashboard.html">My Routine &amp; Subscriptions</a></li>
+          <li><a href="wholesale.html">Dermatology &amp; Wholesale</a></li>
+          <li><a href="contact.html">Skin Concierge Hotline</a></li>
+          <li><a href="about.html">Eco-Shield Reef Policy</a></li>
+          <li><a href="contact.html#faq">Shipping &amp; Returns</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: Newsletter -->
+      <div>
+        <div class="footer-col-title">Join The Solvéa Protocol</div>
+        <p style="font-size: 0.84rem; color: var(--c-carbon-light); margin-bottom: 0.5rem;">
+          Subscribe for clinical UV alerts, new formulation releases, and 15% off your first order.
+        </p>
+        <form onsubmit="handleNewsletter(event)">
+          <div class="footer-newsletter-box">
+            <input type="email" placeholder="Enter your email" required class="footer-newsletter-input">
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </div>
+        </form>
+        <div style="font-size: 0.72rem; color: var(--c-carbon-muted); margin-top: 8px;">
+          🔒 Hypoallergenic data policy. Unsubscribe anytime.
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <div>© 2026 SOLVÉA Skincare Labs Inc. All rights reserved. Formulated in California.</div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Clinical Service</a>
+        <a href="#">Reef Protection Guarantee</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Universal Cart Slide-Over Drawer -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <i class="fa-solid fa-bag-shopping" style="color: var(--c-solar-deep);"></i>
+        <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Your Clean Routine Bag</h3>
+      </div>
+      <button data-close-cart style="background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--c-carbon);">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-shipping-bar">
+      <div id="cart-shipping-msg">Add $45.00 more for Free Clinical Delivery</div>
+      <div class="cart-progress-wrap">
+        <div class="cart-progress-bar" id="cart-shipping-progress" style="width: 0%;"></div>
+      </div>
+    </div>
+    <div class="cart-items-body" id="cart-items-container">
+      <!-- Populated via main.js -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span>Estimated Subtotal</span>
+        <span id="cart-subtotal-val">$0.00</span>
+      </div>
+      <p style="font-size: 0.76rem; color: var(--c-carbon-muted); margin-bottom: 1rem;">
+        Taxes and eco-packaging calculated at checkout.
+      </p>
+      <button class="btn-solvea btn-primary-solar w-100 btn-lg" onclick="showToast('Proceeding to Secure Checkout...');">
+        Secure Checkout <i class="fa-solid fa-lock" style="font-size: 0.85rem;"></i>
+      </button>
+      <div class="text-center mt-2">
+        <span style="font-size: 0.74rem; color: var(--c-carbon-muted);">🌿 100% Carbon-Neutral Delivery &amp; Biodegradable Shipping</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- "Find Your SPF" Diagnostic Quiz Modal -->
+  <div class="quiz-modal-overlay" id="quiz-modal">
+    <div class="quiz-modal-box">
+      <button class="quiz-close-btn" id="quiz-close-btn">&times;</button>
+      <div class="quiz-progress-bar-wrap">
+        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+      </div>
+      <div id="quiz-content-area">
+        <!-- Rendered dynamically via js/main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Data and Master Script -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Interactive UV Section Handler -->
+  <script>
+    function showUVInfo(index) {
+      const uv = SOLVEA_DATA.uvLevels[index];
+      if (!uv) return;
+
+      document.querySelectorAll('.uv-scale-step').forEach((step, idx) => {
+        if (idx === index) step.classList.add('active');
+        else step.classList.remove('active');
+      });
+
+      document.getElementById('uv-panel-badge').textContent = `Selected: UV ${uv.range} (${uv.category} Danger)`;
+      document.getElementById('uv-panel-title').textContent = `${uv.category} UV Solar Radiation Protocol`;
+      document.getElementById('uv-panel-desc').textContent = uv.riskText;
+      
+      const bulletsEl = document.getElementById('uv-panel-bullets');
+      bulletsEl.innerHTML = uv.protocol.map(p => `<li>${p}</li>`).join('');
+
+      document.getElementById('uv-panel-product-name').textContent = uv.spfRecommendation;
+    }
+  </script>
+</body>
+</html>

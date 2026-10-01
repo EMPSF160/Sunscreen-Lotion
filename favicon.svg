@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="solarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4A261" />
+      <stop offset="100%" stop-color="#E76F51" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D2D27" />
+      <stop offset="100%" stop-color="#1E1E1B" />
+    </linearGradient>
+  </defs>
+  <!-- Background Circle -->
+  <rect width="64" height="64" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Clinical Solar Shield Sun Mark -->
+  <circle cx="32" cy="32" r="14" fill="url(#solarGrad)"/>
+  
+  <!-- Outer Protection Orbit -->
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#F4A261" stroke-width="2.5" stroke-dasharray="4 3" opacity="0.85"/>
+  
+  <!-- Center Clinical Photon Dot -->
+  <circle cx="32" cy="32" r="4.5" fill="#FFFFFF"/>
+</svg>

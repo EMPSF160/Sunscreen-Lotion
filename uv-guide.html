@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UV Index Intelligence &amp; Protection Protocol — SOLVÉA</title>
+  <meta name="description" content="Master solar radiation defense: interactive UV index guide, live solar radar, reapplication timer, and activity-specific sunscreen recommendations.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div>
+        <span>☀️ <strong>LIVE UV ADVISORY:</strong> UV <span class="live-uv-num">7.4</span> High in your area. Reapply every 2 hours.</span>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-3">
+        <span>Free Clinical Delivery on $45+</span>
+        <a href="subscriptions.html">Subscribe & Save 15%</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Main -->
+  <header class="header-main">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-logo-text">SOLVÉA <span class="sun-dot"></span></span>
+        <span class="brand-logo-tag">Clinical Photoprotection</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="shop.html" class="nav-link-item">Shop Sunscreens</a></li>
+        <li><a href="uv-guide.html" class="nav-link-item active">UV Index Guide</a></li>
+        <li><a href="skin-guide.html" class="nav-link-item">Skin & Sun Guide</a></li>
+        <li><a href="subscriptions.html" class="nav-link-item">Subscriptions</a></li>
+        <li><a href="wholesale.html" class="nav-link-item">Bulk & Pro</a></li>
+        <li><a href="about.html" class="nav-link-item">About</a></li>
+        <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="uv-guide.html" class="uv-badge-pill">
+          <span class="uv-indicator-dot"></span>
+          <span>UV <span class="live-uv-status">7.4 (High)</span></span>
+        </a>
+        <button class="btn-solvea btn-primary-solar btn-sm d-none d-lg-inline-flex" data-open-quiz>
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Find Your SPF
+        </button>
+        <a href="dashboard.html#saved" class="action-btn" title="Saved Routine">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count wishlist-count-badge" style="display:none;">0</span>
+        </a>
+        <a href="dashboard.html" class="action-btn" title="My Account">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button class="action-btn" data-open-cart title="Shopping Bag">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </button>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('d-flex')">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- UV Hero Banner & Global City Selector -->
+  <section class="uv-hero-banner">
+    <div class="container" style="max-width: 1400px;">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <span class="badge-clinical badge-solar" style="background: rgba(244,162,97,0.2); color: var(--c-solar-orange); border:none; margin-bottom: 1rem;">
+            Global Solar Photoprotection Intelligence
+          </span>
+          <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; color: #fff; margin-bottom: 1rem;">
+            Real-Time UV Index &amp; Hourly Curve Radar
+          </h1>
+          <p style="color: var(--c-carbon-light); font-size: 1.05rem; max-width: 580px; margin-bottom: 1.5rem;">
+            The Ultraviolet (UV) Index measures the intensity of sunburn-producing ultraviolet radiation at a particular place and time. Even on cloudy days, up to 80% of UV rays penetrate to the surface.
+          </p>
+
+          <!-- City Selection Chips -->
+          <div style="margin-top: 1.5rem;">
+            <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--c-carbon-light); margin-bottom: 0.5rem;">
+              Simulate Live City UV Radar:
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <button class="city-chip active" onclick="setCityUV('San Diego, USA', 7.4, [1, 2, 4, 7, 7.4, 6, 4, 2, 0])">San Diego (7.4)</button>
+              <button class="city-chip" onclick="setCityUV('Miami Beach, USA', 9.2, [2, 3, 6, 8.5, 9.2, 8, 5, 3, 1])">Miami (9.2)</button>
+              <button class="city-chip" onclick="setCityUV('Sydney, Australia', 11.5, [3, 5, 8, 10.5, 11.5, 9, 6, 3, 0])">Sydney (11.5)</button>
+              <button class="city-chip" onclick="setCityUV('London, UK', 3.8, [0, 1, 2, 3.5, 3.8, 3, 2, 1, 0])">London (3.8)</button>
+              <button class="city-chip" onclick="setCityUV('Dubai, UAE', 10.8, [2, 4, 7, 9.8, 10.8, 9.5, 6, 3, 1])">Dubai (10.8)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div style="background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-xl); padding: 2rem; text-align: center;">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-solar-orange);" id="current-city-label">
+              San Diego, USA • Live Solar Reading
+            </div>
+            <div style="font-family: var(--font-display); font-size: 4.5rem; font-weight: 800; color: #fff; line-height: 1; margin: 0.5rem 0;" id="city-uv-val">
+              7.4
+            </div>
+            <div style="display: inline-block; padding: 4px 14px; border-radius: var(--radius-full); font-size: 0.84rem; font-weight: 700; background: var(--c-solar-deep); color: #fff; margin-bottom: 1rem;" id="city-uv-badge">
+              High Risk • Burn in 20 Mins
+            </div>
+            <p style="font-size: 0.85rem; color: var(--c-carbon-light); margin-bottom: 1.25rem;" id="city-uv-action">
+              Mandatory application of SOLVÉA Hydro-Shield SPF 50+. UV400 eyewear recommended.
+            </p>
+            <button class="btn-solvea btn-primary-solar btn-sm w-100" onclick="addToCart('solvea-hydro-shield-spf50')">
+              Get Recommended Formula ($34.00)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hourly UV Curve Chart Section -->
+  <section class="section-wrapper">
+    <div class="section-head">
+      <span class="section-tag">Diurnal Radiation Curve</span>
+      <h2 class="section-title">Today's Hourly UV Solar Intensity</h2>
+      <p class="section-desc">Solar UV radiation peaks between 10:00 AM and 3:00 PM when the sun is at its highest celestial zenith angle.</p>
+    </div>
+
+    <div style="background: var(--c-clean-white); border-radius: var(--radius-xl); border: 1px solid var(--c-border); padding: 2rem; box-shadow: var(--shadow-md);">
+      <canvas id="uvHourlyChart" style="max-height: 340px;"></canvas>
+    </div>
+  </section>
+
+  <!-- Smart Reapplication Timer Tool -->
+  <section class="section-wrapper" style="padding-top: 0;">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <span class="section-tag">Interactive Skincare Tool</span>
+        <h2 class="section-title">Smart Sunscreen Reapplication Timer</h2>
+        <p class="section-desc">
+          Sunscreen filters degrade due to solar photon breakdown, sweat evaporation, and natural skin sebum secretion. Start this timer after applying your SOLVÉA SPF to receive an audio-visual reminder when reapplication is required.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
+          <div style="background: var(--c-sun-cream); padding: 1.25rem; border-radius: var(--radius-md); display: flex; gap: 12px; align-items: center;">
+            <i class="fa-solid fa-person-swimming" style="font-size: 1.5rem; color: var(--c-solar-deep);"></i>
+            <div>
+              <strong>Water Sports / Intense Sweat:</strong>
+              <div style="font-size: 0.82rem; color: var(--c-carbon-muted);">Reapply strictly every <strong>80 minutes</strong> (maximum water resistance limit).</div>
+            </div>
+          </div>
+          <div style="background: var(--c-sun-cream); padding: 1.25rem; border-radius: var(--radius-md); display: flex; gap: 12px; align-items: center;">
+            <i class="fa-solid fa-umbrella-beach" style="font-size: 1.5rem; color: var(--c-solar-deep);"></i>
+            <div>
+              <strong>Daily Urban / Outdoor Casual:</strong>
+              <div style="font-size: 0.82rem; color: var(--c-carbon-muted);">Reapply every <strong>120 minutes</strong> (2 hours) for continuous protection.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="uv-timer-card">
+          <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--c-carbon-muted); letter-spacing: 0.08em;">
+            Active Session Countdown
+          </div>
+          <div class="timer-display" id="timer-val">02:00:00</div>
+          <div style="font-size: 0.86rem; color: var(--c-carbon-soft); margin-bottom: 1.5rem;" id="timer-status-text">
+            Ready to start. Select your mode below:
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem;">
+            <button class="btn-solvea btn-sm" id="btn-mode-80" onclick="setTimerDuration(80, this)" style="background: var(--c-sun-cream); border: 1px solid var(--c-border);">
+              🏊 80 Min (Sport/Water)
+            </button>
+            <button class="btn-solvea btn-sm active" id="btn-mode-120" onclick="setTimerDuration(120, this)" style="background: var(--c-carbon); color: #fff;">
+              ☀️ 120 Min (Standard)
+            </button>
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 12px;">
+            <button class="btn-solvea btn-primary-solar btn-lg" id="timer-toggle-btn" onclick="toggleTimer()">
+              <i class="fa-solid fa-play"></i> Start Timer
+            </button>
+            <button class="btn-solvea btn-outline-carbon btn-lg" onclick="resetTimer()">
+              <i class="fa-solid fa-rotate-left"></i> Reset
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outdoor Activity Specific Protection -->
+  <section class="section-wrapper" style="padding-top: 0;">
+    <div class="section-head">
+      <span class="section-tag">Activity Guidelines</span>
+      <h2 class="section-title">Photoprotection by Outdoor Activity</h2>
+      <p class="section-desc">Different environments multiply UV exposure through natural reflective surfaces.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="activity-card text-center" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div style="width: 100%; height: 140px; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <img src="imaghe/antonio-gabola-ZY3zSaIZRtI-unsplash.jpg" alt="Ocean Swimming" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">Ocean &amp; Swimming</h3>
+          <p style="font-size: 0.84rem; color: var(--c-carbon-muted); flex-grow: 1;">
+            Water reflects up to 10% of UV radiation back upward. <strong>Use Solar Aerosol-Free Dry Mist SPF 50+</strong> (80 min water resistance certified).
+          </p>
+          <a href="product-detail.html?id=solvea-solar-body-mist-spf50" class="btn-solvea btn-carbon btn-sm mt-2">View Sport Mist</a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="activity-card text-center" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div style="width: 100%; height: 140px; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <img src="imaghe/dimitrisvetsikas1969-summer-1599139_1920.jpg" alt="High Altitude & Snow" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">High Altitude &amp; Snow</h3>
+          <p style="font-size: 0.84rem; color: var(--c-carbon-muted); flex-grow: 1;">
+            UV levels increase by 4% for every 1,000 feet of elevation. Snow reflects 80% of UV rays. <strong>Use 100% Mineral Zinc Barrier SPF 50</strong>.
+          </p>
+          <a href="product-detail.html?id=solvea-mineral-pure-spf50" class="btn-solvea btn-carbon btn-sm mt-2">View Mineral Shield</a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="activity-card text-center" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div style="width: 100%; height: 140px; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <img src="imaghe/houston-max-K82z6_8y_TU-unsplash.jpg" alt="Marathon & Running" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">Marathon &amp; Running</h3>
+          <p style="font-size: 0.84rem; color: var(--c-carbon-muted); flex-grow: 1;">
+            High sweat breaks down weak oil-based creams. <strong>Hydro-Shield Invisible Fluid</strong> locks with sweat-resistant polymers and won't sting eyes.
+          </p>
+          <a href="product-detail.html?id=solvea-hydro-shield-spf50" class="btn-solvea btn-carbon btn-sm mt-2">View Hydro-Shield</a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="activity-card text-center" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div style="width: 100%; height: 140px; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <img src="imaghe/sidral-mundet-lW6dSRZCXFM-unsplash.jpg" alt="Urban Commute" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">Urban Commute &amp; Office</h3>
+          <p style="font-size: 0.84rem; color: var(--c-carbon-muted); flex-grow: 1;">
+            UVA rays penetrate glass windows; screens emit HEV blue light. <strong>Peptide Glow SPF 30</strong> provides daily anti-aging antioxidant repair.
+          </p>
+          <a href="product-detail.html?id=solvea-peptide-glow-spf30" class="btn-solvea btn-carbon btn-sm mt-2">View Peptide SPF 30</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Universal Footer -->
+  <footer class="footer-main">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-title">SOLVÉA <span style="color: var(--c-solar-orange);">●</span></div>
+        <p class="footer-tagline">Protect Your Skin. Every Day.<br>Clinical Skincare × Modern Beauty × Clean Science.</p>
+        <div class="footer-social-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA X (Twitter)" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Formulations</div>
+        <ul class="footer-links">
+          <li><a href="shop.html">Face Sunscreens</a></li>
+          <li><a href="shop.html">Body &amp; Mist</a></li>
+          <li><a href="shop.html">Pure Mineral Zinc</a></li>
+          <li><a href="shop.html">Post-Sun Recovery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Intelligence</div>
+        <ul class="footer-links">
+          <li><a href="uv-guide.html">UV Index Guide</a></li>
+          <li><a href="skin-guide.html">Skin &amp; Sun Masterclass</a></li>
+          <li><a href="subscriptions.html">Auto-Shield Delivery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Client Support</div>
+        <ul class="footer-links">
+          <li><a href="dashboard.html">My Portal</a></li>
+          <li><a href="wholesale.html">Bulk &amp; Clinics</a></li>
+          <li><a href="contact.html">Concierge Desk</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Join The Routine</div>
+        <form onsubmit="handleNewsletter(event)">
+          <div class="footer-newsletter-box">
+            <input type="email" placeholder="Your email address" required class="footer-newsletter-input">
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 SOLVÉA Skincare Labs Inc. All rights reserved.</div>
+      <div>100% Ocean &amp; Reef-Safe Certified.</div>
+    </div>
+  </footer>
+
+  <!-- Universal Cart Drawer & Quiz Modal -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <i class="fa-solid fa-bag-shopping" style="color: var(--c-solar-deep);"></i>
+        <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Your Clean Routine Bag</h3>
+      </div>
+      <button data-close-cart style="background: none; border: none; font-size: 1.25rem; cursor: pointer;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-shipping-bar">
+      <div id="cart-shipping-msg">Add $45.00 more for Free Delivery</div>
+      <div class="cart-progress-wrap">
+        <div class="cart-progress-bar" id="cart-shipping-progress" style="width: 0%;"></div>
+      </div>
+    </div>
+    <div class="cart-items-body" id="cart-items-container"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal-val">$0.00</span>
+      </div>
+      <button class="btn-solvea btn-primary-solar w-100 btn-lg" onclick="showToast('Proceeding to Checkout...');">
+        Secure Checkout <i class="fa-solid fa-lock" style="font-size: 0.85rem;"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="quiz-modal-overlay" id="quiz-modal">
+    <div class="quiz-modal-box">
+      <button class="quiz-close-btn" id="quiz-close-btn">&times;</button>
+      <div class="quiz-progress-bar-wrap">
+        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+      </div>
+      <div id="quiz-content-area"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Hourly UV Curve Chart Initialization
+    let uvChart = null;
+    const hours = ['8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM'];
+
+    function initUVChart(data = [1, 2, 4, 7, 7.4, 6, 4, 2, 0]) {
+      const ctx = document.getElementById('uvHourlyChart').getContext('2d');
+      if (uvChart) uvChart.destroy();
+
+      uvChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: hours,
+          datasets: [{
+            label: 'Solar UV Index (mW/m²)',
+            data: data,
+            borderColor: '#E76F51',
+            backgroundColor: 'rgba(244, 162, 97, 0.2)',
+            fill: true,
+            tension: 0.4,
+            borderWidth: 3,
+            pointBackgroundColor: '#1E1E1B',
+            pointRadius: 6,
+            pointHoverRadius: 8
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => ` UV Level: ${ctx.parsed.y} (${ctx.parsed.y >= 6 ? 'High/Dangerous' : 'Low/Moderate'})`
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 12,
+              grid: { color: 'rgba(30,30,27,0.06)' },
+              ticks: { stepSize: 2 }
+            },
+            x: {
+              grid: { display: false }
+            }
+          }
+        }
+      });
+    }
+
+    function setCityUV(cityName, uvVal, hourlyData) {
+      document.getElementById('current-city-label').textContent = `${cityName} • Live Solar Reading`;
+      document.getElementById('city-uv-val').textContent = uvVal.toFixed(1);
+
+      const badge = document.getElementById('city-uv-badge');
+      const action = document.getElementById('city-uv-action');
+
+      if (uvVal >= 11) {
+        badge.textContent = 'Extreme Risk • Burn in 5 Mins';
+        badge.style.backgroundColor = '#6A040F';
+        action.textContent = 'Full physical barrier required. Avoid outdoor sun between 11 AM - 3 PM.';
+      } else if (uvVal >= 8) {
+        badge.textContent = 'Very High Risk • Burn in 10 Mins';
+        badge.style.backgroundColor = '#D62828';
+        action.textContent = 'Generous SPF 50+ mineral layer with reapplication every 80 minutes.';
+      } else if (uvVal >= 6) {
+        badge.textContent = 'High Risk • Burn in 20 Mins';
+        badge.style.backgroundColor = '#E76F51';
+        action.textContent = 'Apply SPF 50+ Hydro-Shield and wear UV400 sunglasses.';
+      } else {
+        badge.textContent = 'Moderate Risk • Daily SPF 30';
+        badge.style.backgroundColor = '#F4A261';
+        action.textContent = 'Daily hydration with Peptide Glow SPF 30 prevents photoaging.';
+      }
+
+      document.querySelectorAll('.city-chip').forEach(chip => chip.classList.remove('active'));
+      event.target.classList.add('active');
+
+      initUVChart(hourlyData);
+    }
+
+    // Reapplication Timer Logic
+    let timerDurationMinutes = 120;
+    let remainingSeconds = timerDurationMinutes * 60;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    function formatTime(sec) {
+      const h = Math.floor(sec / 3600).toString().padStart(2, '0');
+      const m = Math.floor((sec % 3600) / 60).toString().padStart(2, '0');
+      const s = (sec % 60).toString().padStart(2, '0');
+      return `${h}:${m}:${s}`;
+    }
+
+    function updateTimerDisplay() {
+      document.getElementById('timer-val').textContent = formatTime(remainingSeconds);
+    }
+
+    function setTimerDuration(mins, btnEl) {
+      if (isTimerRunning) return;
+      timerDurationMinutes = mins;
+      remainingSeconds = mins * 60;
+      updateTimerDisplay();
+
+      document.querySelectorAll('#btn-mode-80, #btn-mode-120').forEach(b => {
+        b.style.background = 'var(--c-sun-cream)';
+        b.style.color = 'var(--c-carbon)';
+      });
+      btnEl.style.background = 'var(--c-carbon)';
+      btnEl.style.color = '#fff';
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('timer-toggle-btn');
+      const statusText = document.getElementById('timer-status-text');
+
+      if (isTimerRunning) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        btn.innerHTML = '<i class="fa-solid fa-play"></i> Resume Timer';
+        statusText.textContent = 'Timer paused.';
+      } else {
+        isTimerRunning = true;
+        btn.innerHTML = '<i class="fa-solid fa-pause"></i> Pause Timer';
+        statusText.textContent = `Active photoprotection session (${timerDurationMinutes} mins).`;
+        timerInterval = setInterval(() => {
+          remainingSeconds--;
+          updateTimerDisplay();
+          if (remainingSeconds <= 0) {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            btn.innerHTML = '<i class="fa-solid fa-play"></i> Start Timer';
+            statusText.textContent = '⚠️ Time to Reapply! Your sunscreen layer has decayed.';
+            showToast('⚠️ TIME TO REAPPLY SUNSCREEN! Protect your barrier.');
+          }
+        }, 1000);
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+      remainingSeconds = timerDurationMinutes * 60;
+      updateTimerDisplay();
+      document.getElementById('timer-toggle-btn').innerHTML = '<i class="fa-solid fa-play"></i> Start Timer';
+      document.getElementById('timer-status-text').textContent = 'Timer reset.';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initUVChart();
+      updateTimerDisplay();
+    });
+  </script>
+</body>
+</html>

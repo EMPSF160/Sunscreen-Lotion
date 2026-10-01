@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOLVÉA Auto-Shield Subscriptions — 15% Off Continuous SPF</title>
+  <meta name="description" content="Never get caught without daily broad spectrum SPF. Customize your 30, 60, or 90-day refill cycle with 15% savings, free shipping, and complete flexibility.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div>
+        <span>☀️ <strong>LIVE UV ADVISORY:</strong> UV <span class="live-uv-num">7.4</span> High in your area. Reapply every 2 hours.</span>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-3">
+        <span>Free Clinical Delivery on $45+</span>
+        <a href="subscriptions.html">Subscribe & Save 15%</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Main -->
+  <header class="header-main">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-logo-text">SOLVÉA <span class="sun-dot"></span></span>
+        <span class="brand-logo-tag">Clinical Photoprotection</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="shop.html" class="nav-link-item">Shop Sunscreens</a></li>
+        <li><a href="uv-guide.html" class="nav-link-item">UV Index Guide</a></li>
+        <li><a href="skin-guide.html" class="nav-link-item">Skin & Sun Guide</a></li>
+        <li><a href="subscriptions.html" class="nav-link-item active">Subscriptions</a></li>
+        <li><a href="wholesale.html" class="nav-link-item">Bulk & Pro</a></li>
+        <li><a href="about.html" class="nav-link-item">About</a></li>
+        <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="uv-guide.html" class="uv-badge-pill">
+          <span class="uv-indicator-dot"></span>
+          <span>UV <span class="live-uv-status">7.4 (High)</span></span>
+        </a>
+        <button class="btn-solvea btn-primary-solar btn-sm d-none d-lg-inline-flex" data-open-quiz>
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Find Your SPF
+        </button>
+        <a href="dashboard.html#saved" class="action-btn" title="Saved Routine">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count wishlist-count-badge" style="display:none;">0</span>
+        </a>
+        <a href="dashboard.html" class="action-btn" title="My Account">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button class="action-btn" data-open-cart title="Shopping Bag">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </button>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('d-flex')">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subscriptions Hero -->
+  <section style="background: linear-gradient(175deg, var(--c-sun-cream) 0%, #F5ECE0 100%); padding: 4.5rem 2rem 3rem; text-align: center; border-bottom: 1px solid var(--c-border);">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <span class="badge-clinical badge-solar" style="margin-bottom: 0.75rem;">SOLVÉA Auto-Shield Replenishment</span>
+      <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 800; margin-bottom: 1rem;">
+        Consistency Is The True Anti-Aging Secret.
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--c-carbon-soft); line-height: 1.6; margin-bottom: 0;">
+        80% of sunscreen protection fails because bottles run empty. Build your custom auto-replenishment box: save 15% on every shipment, unlock free priority shipping, and pause or cancel anytime.
+      </p>
+    </div>
+  </section>
+
+  <!-- Interactive Subscription Configurator Box -->
+  <section class="section-wrapper">
+    <div class="sub-builder-card">
+      <div class="row g-5">
+        <!-- Left: Configuration Steps -->
+        <div class="col-lg-7">
+          <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 1.5rem;">1. Choose Your Replenishment Cycle</h2>
+          
+          <div style="display: flex; gap: 12px; margin-bottom: 2.5rem; flex-wrap: wrap;">
+            <div class="cycle-btn" onclick="selectCycle('30-days', this)">
+              <div style="font-weight: 800; font-size: 1.1rem; margin-bottom: 2px;">30 Days</div>
+              <div style="font-size: 0.76rem; color: var(--c-carbon-muted);">Daily face + body heavy user</div>
+            </div>
+            <div class="cycle-btn active" onclick="selectCycle('60-days', this)">
+              <div style="font-weight: 800; font-size: 1.1rem; margin-bottom: 2px; color: var(--c-solar-deep);">60 Days ⭐</div>
+              <div style="font-size: 0.76rem; color: var(--c-carbon-muted);">Standard 2-finger daily face dose</div>
+            </div>
+            <div class="cycle-btn" onclick="selectCycle('90-days', this)">
+              <div style="font-weight: 800; font-size: 1.1rem; margin-bottom: 2px;">90 Days</div>
+              <div style="font-size: 0.76rem; color: var(--c-carbon-muted);">Seasonal light sun exposure</div>
+            </div>
+          </div>
+
+          <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem;">2. Select Formulas for Your Box</h2>
+          <p style="font-size: 0.88rem; color: var(--c-carbon-muted); margin-bottom: 1.25rem;">Select your desired quantity for each clinical formula:</p>
+
+          <div id="sub-custom-products">
+            <!-- Product Item 1 -->
+            <div class="sub-product-select-card">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="imaghe/pexels-mearlywan-307951439-16378484.jpg" alt="Hydro-Shield SPF 50+" class="sub-item-thumbnail">
+                <div>
+                  <div style="font-weight: 700; font-size: 0.94rem;">Hydro-Shield Invisible Fluid SPF 50+</div>
+                  <div style="font-size: 0.76rem; color: var(--c-solar-deep); font-weight: 700;">$28.90 <span style="text-decoration: line-through; color: #999;">$34.00</span></div>
+                </div>
+              </div>
+              <div class="cart-qty-ctrl">
+                <button class="cart-qty-btn" onclick="changeSubQty('hydro', -1)">-</button>
+                <span class="cart-qty-val" id="sub-qty-hydro">1</span>
+                <button class="cart-qty-btn" onclick="changeSubQty('hydro', 1)">+</button>
+              </div>
+            </div>
+
+            <!-- Product Item 2 -->
+            <div class="sub-product-select-card">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="imaghe/deeznutz1-sunblock-8184610_1920.png" alt="Solar Dry Mist SPF 50+" class="sub-item-thumbnail">
+                <div>
+                  <div style="font-weight: 700; font-size: 0.94rem;">Solar Aerosol-Free Dry Mist SPF 50+</div>
+                  <div style="font-size: 0.76rem; color: var(--c-solar-deep); font-weight: 700;">$27.20 <span style="text-decoration: line-through; color: #999;">$32.00</span></div>
+                </div>
+              </div>
+              <div class="cart-qty-ctrl">
+                <button class="cart-qty-btn" onclick="changeSubQty('mist', -1)">-</button>
+                <span class="cart-qty-val" id="sub-qty-mist">1</span>
+                <button class="cart-qty-btn" onclick="changeSubQty('mist', 1)">+</button>
+              </div>
+            </div>
+
+            <!-- Product Item 3 -->
+            <div class="sub-product-select-card">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="imaghe/biosparsha-sunscreen-9968928_1920.jpg" alt="Mineral Pure Barrier SPF 50" class="sub-item-thumbnail">
+                <div>
+                  <div style="font-weight: 700; font-size: 0.94rem;">Mineral Pure Barrier Defense SPF 50</div>
+                  <div style="font-size: 0.76rem; color: var(--c-solar-deep); font-weight: 700;">$32.30 <span style="text-decoration: line-through; color: #999;">$38.00</span></div>
+                </div>
+              </div>
+              <div class="cart-qty-ctrl">
+                <button class="cart-qty-btn" onclick="changeSubQty('mineral', -1)">-</button>
+                <span class="cart-qty-val" id="sub-qty-mineral">0</span>
+                <button class="cart-qty-btn" onclick="changeSubQty('mineral', 1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Subscription Summary & Perks -->
+        <div class="col-lg-5">
+          <div style="background: var(--c-sun-cream); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--c-border); height: 100%; display: flex; flex-direction: column;">
+            <span class="badge-clinical badge-solar" style="margin-bottom: 0.5rem; width: fit-content;">Plan Summary</span>
+            <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem;">Your Custom Auto-Shield</h3>
+            
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 6px;">
+              <span>Delivery Interval:</span>
+              <strong id="sub-summary-cycle">Every 60 Days</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 6px;">
+              <span>Total Selected Items:</span>
+              <strong id="sub-summary-items">2 Formulas</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 6px;">
+              <span>Standard Retail Value:</span>
+              <span id="sub-summary-retail" style="text-decoration: line-through; color: #888;">$66.00</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 6px; color: #52B788; font-weight: 700;">
+              <span>Subscriber 15% Discount:</span>
+              <span id="sub-summary-savings">-$9.90</span>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--c-border);">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+                <span style="font-size: 1rem; font-weight: 700;">Subscription Total:</span>
+                <span id="sub-summary-total" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--c-solar-deep);">$56.10</span>
+              </div>
+
+              <button class="btn-solvea btn-primary-solar w-100 btn-lg" onclick="startCustomSubscription()">
+                Activate Auto-Shield Plan
+              </button>
+
+              <div style="font-size: 0.76rem; color: var(--c-carbon-muted); text-align: center; margin-top: 10px;">
+                ✓ Free shipping forever • Pause or cancel anytime in 1-click
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscriber VIP Perks Grid -->
+  <section class="section-wrapper" style="padding-top: 0;">
+    <div class="section-head">
+      <span class="section-tag">VIP Privileges</span>
+      <h2 class="section-title">The SolvéA Auto-Shield Experience</h2>
+      <p class="section-desc">We built this program to reward consistent daily photoprotection.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="perk-badge">
+          <div style="font-size: 2rem; color: var(--c-solar-deep);"><i class="fa-solid fa-percent"></i></div>
+          <div>
+            <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 2px;">15% Off Guaranteed</h4>
+            <p style="font-size: 0.8rem; color: var(--c-carbon-muted); margin-bottom: 0;">Applied to all shipments without coupon expiration.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="perk-badge">
+          <div style="font-size: 2rem; color: var(--c-solar-deep);"><i class="fa-solid fa-gift"></i></div>
+          <div>
+            <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 2px;">Free 3rd Order Gift</h4>
+            <p style="font-size: 0.8rem; color: var(--c-carbon-muted); margin-bottom: 0;">Full-size Post-Sun Cica-Serum automatically included.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="perk-badge">
+          <div style="font-size: 2rem; color: var(--c-solar-deep);"><i class="fa-solid fa-toggle-on"></i></div>
+          <div>
+            <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 2px;">Total Flexibility</h4>
+            <p style="font-size: 0.8rem; color: var(--c-carbon-muted); margin-bottom: 0;">Skip a month, change products, or cancel in your dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Universal Footer -->
+  <footer class="footer-main">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-title">SOLVÉA <span style="color: var(--c-solar-orange);">●</span></div>
+        <p class="footer-tagline">Protect Your Skin. Every Day.<br>Clinical Skincare × Modern Beauty × Clean Science.</p>
+        <div class="footer-social-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA X (Twitter)" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Formulations</div>
+        <ul class="footer-links">
+          <li><a href="shop.html">Face Sunscreens</a></li>
+          <li><a href="shop.html">Body &amp; Mist</a></li>
+          <li><a href="shop.html">Pure Mineral Zinc</a></li>
+          <li><a href="shop.html">Post-Sun Recovery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Intelligence</div>
+        <ul class="footer-links">
+          <li><a href="uv-guide.html">UV Index Guide</a></li>
+          <li><a href="skin-guide.html">Skin &amp; Sun Masterclass</a></li>
+          <li><a href="subscriptions.html">Auto-Shield Delivery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Client Support</div>
+        <ul class="footer-links">
+          <li><a href="dashboard.html">My Portal</a></li>
+          <li><a href="wholesale.html">Bulk &amp; Clinics</a></li>
+          <li><a href="contact.html">Concierge Desk</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Join The Routine</div>
+        <form onsubmit="handleNewsletter(event)">
+          <div class="footer-newsletter-box">
+            <input type="email" placeholder="Your email address" required class="footer-newsletter-input">
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 SOLVÉA Skincare Labs Inc. All rights reserved.</div>
+      <div>100% Ocean &amp; Reef-Safe Certified.</div>
+    </div>
+  </footer>
+
+  <!-- Universal Cart Drawer & Quiz Modal -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <i class="fa-solid fa-bag-shopping" style="color: var(--c-solar-deep);"></i>
+        <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Your Clean Routine Bag</h3>
+      </div>
+      <button data-close-cart style="background: none; border: none; font-size: 1.25rem; cursor: pointer;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-shipping-bar">
+      <div id="cart-shipping-msg">Add $45.00 more for Free Delivery</div>
+      <div class="cart-progress-wrap">
+        <div class="cart-progress-bar" id="cart-shipping-progress" style="width: 0%;"></div>
+      </div>
+    </div>
+    <div class="cart-items-body" id="cart-items-container"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal-val">$0.00</span>
+      </div>
+      <button class="btn-solvea btn-primary-solar w-100 btn-lg" onclick="showToast('Proceeding to Checkout...');">
+        Secure Checkout <i class="fa-solid fa-lock" style="font-size: 0.85rem;"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="quiz-modal-overlay" id="quiz-modal">
+    <div class="quiz-modal-box">
+      <button class="quiz-close-btn" id="quiz-close-btn">&times;</button>
+      <div class="quiz-progress-bar-wrap">
+        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+      </div>
+      <div id="quiz-content-area"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let subConfig = {
+      cycle: '60-days',
+      items: {
+        hydro: 1,
+        mist: 1,
+        mineral: 0
+      }
+    };
+
+    const prices = {
+      hydro: { retail: 34.00, sub: 28.90, id: 'solvea-hydro-shield-spf50' },
+      mist: { retail: 32.00, sub: 27.20, id: 'solvea-solar-body-mist-spf50' },
+      mineral: { retail: 38.00, sub: 32.30, id: 'solvea-mineral-pure-spf50' }
+    };
+
+    function selectCycle(cycleVal, btnEl) {
+      subConfig.cycle = cycleVal;
+      document.querySelectorAll('.cycle-btn').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+      document.getElementById('sub-summary-cycle').textContent = `Every ${cycleVal.replace('-', ' ')}`;
+    }
+
+    function changeSubQty(key, delta) {
+      subConfig.items[key] = Math.max(0, subConfig.items[key] + delta);
+      document.getElementById(`sub-qty-${key}`).textContent = subConfig.items[key];
+      calculateSubTotals();
+    }
+
+    function calculateSubTotals() {
+      let totalItems = 0;
+      let retailSum = 0;
+      let subSum = 0;
+
+      for (let k in subConfig.items) {
+        const qty = subConfig.items[k];
+        totalItems += qty;
+        retailSum += qty * prices[k].retail;
+        subSum += qty * prices[k].sub;
+      }
+
+      const savings = retailSum - subSum;
+
+      document.getElementById('sub-summary-items').textContent = `${totalItems} Formulas`;
+      document.getElementById('sub-summary-retail').textContent = `$${retailSum.toFixed(2)}`;
+      document.getElementById('sub-summary-savings').textContent = `-$${savings.toFixed(2)}`;
+      document.getElementById('sub-summary-total').textContent = `$${subSum.toFixed(2)}`;
+    }
+
+    function startCustomSubscription() {
+      let addedAny = false;
+      for (let k in subConfig.items) {
+        const qty = subConfig.items[k];
+        if (qty > 0) {
+          addToCart(prices[k].id, qty, true, subConfig.cycle);
+          addedAny = true;
+        }
+      }
+      if (!addedAny) {
+        showToast('Please select at least 1 sunscreen formula for your box.');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', calculateSubTotals);
+  </script>
+</body>
+</html>

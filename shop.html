@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Clinical Sunscreens — SOLVÉA Photoprotection</title>
+  <meta name="description" content="Explore SOLVÉA broad-spectrum SPF 30, 50, and 50+ mineral, chemical, and hybrid sunscreen formulations tailored to your skin type.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div>
+        <span>☀️ <strong>LIVE UV ADVISORY:</strong> UV <span class="live-uv-num">7.4</span> High in your area. Reapply every 2 hours.</span>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-3">
+        <span>Free Clinical Delivery on $45+</span>
+        <a href="subscriptions.html">Subscribe & Save 15%</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Main -->
+  <header class="header-main">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-logo-text">SOLVÉA <span class="sun-dot"></span></span>
+        <span class="brand-logo-tag">Clinical Photoprotection</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="shop.html" class="nav-link-item active">Shop Sunscreens</a></li>
+        <li><a href="uv-guide.html" class="nav-link-item">UV Index Guide</a></li>
+        <li><a href="skin-guide.html" class="nav-link-item">Skin & Sun Guide</a></li>
+        <li><a href="subscriptions.html" class="nav-link-item">Subscriptions</a></li>
+        <li><a href="wholesale.html" class="nav-link-item">Bulk & Pro</a></li>
+        <li><a href="about.html" class="nav-link-item">About</a></li>
+        <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="uv-guide.html" class="uv-badge-pill">
+          <span class="uv-indicator-dot"></span>
+          <span>UV <span class="live-uv-status">7.4 (High)</span></span>
+        </a>
+        <button class="btn-solvea btn-primary-solar btn-sm d-none d-lg-inline-flex" data-open-quiz>
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Find Your SPF
+        </button>
+        <a href="dashboard.html#saved" class="action-btn" title="Saved Routine">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count wishlist-count-badge" style="display:none;">0</span>
+        </a>
+        <a href="dashboard.html" class="action-btn" title="My Account">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button class="action-btn" data-open-cart title="Shopping Bag">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </button>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('d-flex')">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header Banner -->
+  <div style="background: linear-gradient(180deg, var(--c-sun-cream) 0%, var(--c-clean-white) 100%); padding: 3rem 2rem 1.5rem; text-align: center; border-bottom: 1px solid var(--c-border);">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <span class="badge-clinical badge-solar" style="margin-bottom: 0.5rem;">Clinical Laboratory Dispensary</span>
+      <h1 style="font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 0.5rem;">Formulated For Zero Cast &amp; High Defense</h1>
+      <p style="font-size: 0.98rem; color: var(--c-carbon-muted); margin-bottom: 0;">
+        Filter by SPF strength, physical/chemical filter mechanism, and skin compatibility. All formulas are 100% Reef-Safe and cruelty-free.
+      </p>
+    </div>
+  </div>
+
+  <!-- Shop Main Section -->
+  <div class="shop-layout">
+    <!-- Filters Sidebar -->
+    <aside class="filter-sidebar">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin: 0;">Filters</h3>
+        <button onclick="resetShopFilters()" style="background:none; border:none; color: var(--c-solar-deep); font-size: 0.78rem; font-weight: 700; cursor: pointer; text-decoration: underline;">Reset All</button>
+      </div>
+
+      <!-- Filter: Search -->
+      <div class="filter-group">
+        <div class="filter-title">Keyword Search</div>
+        <input type="text" id="shop-search-input" placeholder="Search formula, ingredient..." style="width: 100%; padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--c-border); font-size: 0.84rem;">
+      </div>
+
+      <!-- Filter: SPF Strength -->
+      <div class="filter-group">
+        <div class="filter-title">SPF Strength</div>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="spf" value="50+" onchange="applyShopFilters()"> SPF 50+ (Maximum Defense)
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="spf" value="50" onchange="applyShopFilters()"> SPF 50 (High Protection)
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="spf" value="30" onchange="applyShopFilters()"> SPF 30 (Daily Hydrator)
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="spf" value="after-sun" onchange="applyShopFilters()"> Post-Sun Repair
+        </label>
+      </div>
+
+      <!-- Filter: Formulation Type -->
+      <div class="filter-group">
+        <div class="filter-title">Filter Technology</div>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="type" value="mineral" onchange="applyShopFilters()"> 100% Physical Mineral Zinc
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="type" value="chemical" onchange="applyShopFilters()"> Photostable Chemical
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="type" value="hybrid" onchange="applyShopFilters()"> Hybrid Tri-Filter Matrix
+        </label>
+      </div>
+
+      <!-- Filter: Target Application Area -->
+      <div class="filter-group">
+        <div class="filter-title">Area / Application</div>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="category" value="face" onchange="applyShopFilters()"> Facial Suncare
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="category" value="body" onchange="applyShopFilters()"> Body &amp; Sport
+        </label>
+      </div>
+
+      <!-- Filter: Skin Compatibility -->
+      <div class="filter-group">
+        <div class="filter-title">Skin Target</div>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="skin" value="oily" onchange="applyShopFilters()"> Oily &amp; Acne-Prone
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="skin" value="sensitive" onchange="applyShopFilters()"> Sensitive / Rosacea
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="skin" value="dry" onchange="applyShopFilters()"> Dry / Dehydrated
+        </label>
+      </div>
+
+      <!-- Filter: Attributes -->
+      <div class="filter-group">
+        <div class="filter-title">Special Certifications</div>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="attr" value="waterResistant" onchange="applyShopFilters()"> Water-Resistant (80 min)
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="attr" value="fragranceFree" checked onchange="applyShopFilters()"> 100% Fragrance-Free
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox" name="attr" value="reefSafe" checked onchange="applyShopFilters()"> Reef-Safe Certified
+        </label>
+      </div>
+
+      <!-- Quiz CTA Box inside sidebar -->
+      <div style="background: var(--c-sun-cream); border-radius: var(--radius-md); padding: 1.25rem; text-align: center; border: 1px solid var(--c-border); margin-top: 1rem;">
+        <div style="font-size: 1.5rem; margin-bottom: 4px;">🧪</div>
+        <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 4px;">Unsure which SPF?</h4>
+        <p style="font-size: 0.76rem; color: var(--c-carbon-muted); margin-bottom: 0.75rem;">Take our 4-step diagnostic quiz to get matched in 60s.</p>
+        <button class="btn-solvea btn-primary-solar btn-sm w-100" data-open-quiz>Start Quiz</button>
+      </div>
+    </aside>
+
+    <!-- Products Section -->
+    <main>
+      <!-- Toolbar -->
+      <div class="shop-toolbar">
+        <div style="font-size: 0.88rem; font-weight: 700; color: var(--c-carbon);">
+          Showing <span id="shop-product-count">8</span> Formulations
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <label style="font-size: 0.84rem; font-weight: 600; color: var(--c-carbon-muted);">Sort By:</label>
+          <select id="shop-sort-select" onchange="applyShopFilters()" style="padding: 6px 12px; border-radius: var(--radius-sm); border: 1px solid var(--c-border); font-size: 0.84rem; background: #fff; cursor: pointer;">
+            <option value="featured">Dermatologist Recommended</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Highest Customer Rating</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid" id="shop-product-grid">
+        <!-- Dynamically rendered -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Universal Footer -->
+  <footer class="footer-main">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-title">SOLVÉA <span style="color: var(--c-solar-orange);">●</span></div>
+        <p class="footer-tagline">Protect Your Skin. Every Day.<br>Clinical Skincare × Modern Beauty × Clean Science.</p>
+        <div class="footer-social-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA X (Twitter)" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Formulations</div>
+        <ul class="footer-links">
+          <li><a href="shop.html">Face Sunscreens</a></li>
+          <li><a href="shop.html">Body &amp; Mist</a></li>
+          <li><a href="shop.html">Pure Mineral Zinc</a></li>
+          <li><a href="shop.html">Post-Sun Recovery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Intelligence</div>
+        <ul class="footer-links">
+          <li><a href="uv-guide.html">UV Index Guide</a></li>
+          <li><a href="skin-guide.html">Skin &amp; Sun Masterclass</a></li>
+          <li><a href="subscriptions.html">Auto-Shield Delivery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Client Support</div>
+        <ul class="footer-links">
+          <li><a href="dashboard.html">My Portal</a></li>
+          <li><a href="wholesale.html">Bulk &amp; Clinics</a></li>
+          <li><a href="contact.html">Concierge Desk</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Join The Routine</div>
+        <form onsubmit="handleNewsletter(event)">
+          <div class="footer-newsletter-box">
+            <input type="email" placeholder="Your email address" required class="footer-newsletter-input">
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 SOLVÉA Skincare Labs Inc. All rights reserved.</div>
+      <div>100% Ocean &amp; Reef-Safe Certified.</div>
+    </div>
+  </footer>
+
+  <!-- Universal Cart Drawer & Quiz Modal -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <i class="fa-solid fa-bag-shopping" style="color: var(--c-solar-deep);"></i>
+        <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Your Clean Routine Bag</h3>
+      </div>
+      <button data-close-cart style="background: none; border: none; font-size: 1.25rem; cursor: pointer;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-shipping-bar">
+      <div id="cart-shipping-msg">Add $45.00 more for Free Delivery</div>
+      <div class="cart-progress-wrap">
+        <div class="cart-progress-bar" id="cart-shipping-progress" style="width: 0%;"></div>
+      </div>
+    </div>
+    <div class="cart-items-body" id="cart-items-container"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal-val">$0.00</span>
+      </div>
+      <button class="btn-solvea btn-primary-solar w-100 btn-lg" onclick="showToast('Proceeding to Checkout...');">
+        Secure Checkout <i class="fa-solid fa-lock" style="font-size: 0.85rem;"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="quiz-modal-overlay" id="quiz-modal">
+    <div class="quiz-modal-box">
+      <button class="quiz-close-btn" id="quiz-close-btn">&times;</button>
+      <div class="quiz-progress-bar-wrap">
+        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+      </div>
+      <div id="quiz-content-area"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Shop Filtering Logic
+    function applyShopFilters() {
+      const container = document.getElementById('shop-product-grid');
+      const countEl = document.getElementById('shop-product-count');
+      const searchVal = document.getElementById('shop-search-input').value.toLowerCase().trim();
+
+      const selectedSpfs = Array.from(document.querySelectorAll('input[name="spf"]:checked')).map(cb => cb.value);
+      const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(cb => cb.value);
+      const selectedCats = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
+      const selectedSkins = Array.from(document.querySelectorAll('input[name="skin"]:checked')).map(cb => cb.value);
+      const sortVal = document.getElementById('shop-sort-select').value;
+
+      let filtered = SOLVEA_DATA.products.filter(p => {
+        // Search
+        if (searchVal && !p.name.toLowerCase().includes(searchVal) && !p.subTitle.toLowerCase().includes(searchVal) && !p.description.toLowerCase().includes(searchVal)) {
+          return false;
+        }
+        // SPF
+        if (selectedSpfs.length > 0 && !selectedSpfs.includes(p.spfLevel)) {
+          return false;
+        }
+        // Type
+        if (selectedTypes.length > 0 && !selectedTypes.includes(p.type)) {
+          return false;
+        }
+        // Category
+        if (selectedCats.length > 0 && !selectedCats.includes(p.category)) {
+          return false;
+        }
+        // Skin
+        if (selectedSkins.length > 0 && !p.skinType.some(s => selectedSkins.includes(s))) {
+          return false;
+        }
+        return true;
+      });
+
+      // Sorting
+      if (sortVal === 'price-asc') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortVal === 'price-desc') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortVal === 'rating') {
+        filtered.sort((a, b) => b.rating - a.rating);
+      }
+
+      countEl.textContent = filtered.length;
+      renderProductGrid(container, filtered);
+    }
+
+    function resetShopFilters() {
+      document.querySelectorAll('.filter-sidebar input[type="checkbox"]').forEach(cb => cb.checked = false);
+      document.getElementById('shop-search-input').value = '';
+      applyShopFilters();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check for query parameters e.g. ?spf=50 or ?category=body
+      const urlParams = new URLSearchParams(window.location.search);
+      const spfParam = urlParams.get('spf');
+      const catParam = urlParams.get('category');
+      const typeParam = urlParams.get('type');
+
+      if (spfParam) {
+        const cb = document.querySelector(`input[name="spf"][value="${spfParam}"]`) || document.querySelector(`input[name="spf"][value="${spfParam}+"]`);
+        if (cb) cb.checked = true;
+      }
+      if (catParam) {
+        const cb = document.querySelector(`input[name="category"][value="${catParam}"]`);
+        if (cb) cb.checked = true;
+      }
+      if (typeParam) {
+        const cb = document.querySelector(`input[name="type"][value="${typeParam}"]`);
+        if (cb) cb.checked = true;
+      }
+
+      document.getElementById('shop-search-input').addEventListener('input', applyShopFilters);
+      applyShopFilters();
+    });
+  </script>
+</body>
+</html>

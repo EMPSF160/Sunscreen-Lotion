@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account &amp; Routine Dashboard — SOLVÉA</title>
+  <meta name="description" content="Manage your SOLVÉA Auto-Shield subscriptions, track active orders, view saved clinical routines, and redeem Sol-Points rewards.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div>
+        <span>☀️ <strong>LIVE UV ADVISORY:</strong> UV <span class="live-uv-num">7.4</span> High in your area. Reapply every 2 hours.</span>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-3">
+        <span>Free Clinical Delivery on $45+</span>
+        <a href="subscriptions.html">Subscribe & Save 15%</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Main -->
+  <header class="header-main">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-logo-text">SOLVÉA <span class="sun-dot"></span></span>
+        <span class="brand-logo-tag">Clinical Photoprotection</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="shop.html" class="nav-link-item">Shop Sunscreens</a></li>
+        <li><a href="uv-guide.html" class="nav-link-item">UV Index Guide</a></li>
+        <li><a href="skin-guide.html" class="nav-link-item">Skin & Sun Guide</a></li>
+        <li><a href="subscriptions.html" class="nav-link-item">Subscriptions</a></li>
+        <li><a href="wholesale.html" class="nav-link-item">Bulk & Pro</a></li>
+        <li><a href="about.html" class="nav-link-item">About</a></li>
+        <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="uv-guide.html" class="uv-badge-pill">
+          <span class="uv-indicator-dot"></span>
+          <span>UV <span class="live-uv-status">7.4 (High)</span></span>
+        </a>
+        <button class="btn-solvea btn-primary-solar btn-sm d-none d-lg-inline-flex" data-open-quiz>
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Find Your SPF
+        </button>
+        <a href="dashboard.html#saved" class="action-btn" title="Saved Routine">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count wishlist-count-badge" style="display:none;">0</span>
+        </a>
+        <a href="dashboard.html" class="action-btn active" title="My Account" style="color: var(--c-solar-deep);">
+          <i class="fa-solid fa-user"></i>
+        </a>
+        <button class="action-btn" data-open-cart title="Shopping Bag">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </button>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('d-flex')">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- User Auth Card (Shown when logged out) -->
+  <div id="auth-view-container" style="display: none; padding: 4rem 1.5rem; background: var(--c-sun-cream-light);">
+    <div class="auth-card">
+      <!-- Clickable Centered Logo -->
+      <a href="index.html" class="auth-card-logo" title="Return to SOLVÉA Home">
+        <span class="brand-logo-text">SOLVÉA <span class="sun-dot"></span></span>
+        <span class="brand-logo-tag">Clinical Photoprotection</span>
+      </a>
+
+      <h2 id="auth-card-title" style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Sign In to Your Protocol</h2>
+      <p id="auth-card-sub" style="font-size: 0.85rem; color: var(--c-carbon-muted); margin-bottom: 1.5rem;">Access Auto-Shield refills, saved routines, and Sol-Points.</p>
+
+      <form onsubmit="handleAuthSubmit(event)">
+        <div class="auth-form-group">
+          <label>Email Address</label>
+          <input type="email" required placeholder="elena@example.com" class="auth-form-input">
+        </div>
+        <div class="auth-form-group">
+          <label>Password</label>
+          <input type="password" required placeholder="••••••••" class="auth-form-input">
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; font-size: 0.82rem;">
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--c-carbon-soft);">
+            <input type="checkbox" checked style="accent-color: var(--c-solar-deep);"> Remember me
+          </label>
+          <a href="#" onclick="showToast('Password reset link dispatched to your email.'); return false;" style="color: var(--c-solar-deep); font-weight: 600;">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn-solvea btn-primary-solar w-100 btn-lg" style="margin-bottom: 1rem;">
+          Sign In to Portal
+        </button>
+      </form>
+
+      <div style="font-size: 0.84rem; color: var(--c-carbon-muted); padding-top: 1rem; border-top: 1px solid var(--c-border);">
+        Don't have an account? <a href="#" onclick="toggleAuthMode(); return false;" style="color: var(--c-solar-deep); font-weight: 700;">Create One (15% Off)</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Welcome Top Strip (Active Session) -->
+  <div id="logged-in-view-strip" style="background: linear-gradient(180deg, var(--c-sun-cream) 0%, var(--c-clean-white) 100%); padding: 2.5rem 2rem 1.5rem; border-bottom: 1px solid var(--c-border);">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 1.25rem;">
+        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--c-carbon); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800;">
+          EV
+        </div>
+        <div>
+          <span class="badge-clinical badge-solar" style="margin-bottom: 2px;">Tier: Sol-Gold Member</span>
+          <h1 style="font-size: 1.6rem; font-weight: 800; margin: 0;">Welcome, Elena Vance</h1>
+          <div style="font-size: 0.84rem; color: var(--c-carbon-muted);">Skin Profile: Fitzpatrick Type II • Combination / Sensitive</div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <div style="background: #fff; padding: 8px 16px; border-radius: var(--radius-md); border: 1px solid var(--c-border); text-align: center;">
+          <div style="font-size: 0.72rem; font-weight: 700; color: var(--c-carbon-muted); text-transform: uppercase;">Sol-Points</div>
+          <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--c-solar-deep);">450 pts</div>
+        </div>
+        <button class="btn-solvea btn-outline-carbon btn-sm" onclick="toggleDashboardAuth()">Sign In / Log Out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Layout -->
+  <div class="dashboard-layout" id="main-dashboard-grid">
+    <!-- Nav Tabs Sidebar -->
+    <aside class="dash-nav">
+      <button class="dash-nav-btn active" onclick="switchTab('tab-subscriptions', this)">
+        <i class="fa-solid fa-arrows-rotate"></i> Auto-Shield Subscriptions
+      </button>
+      <button class="dash-nav-btn" onclick="switchTab('tab-orders', this)">
+        <i class="fa-solid fa-box"></i> Order History
+      </button>
+      <button class="dash-nav-btn" onclick="switchTab('tab-saved', this)">
+        <i class="fa-solid fa-heart"></i> Saved Routine (<span class="wishlist-count-badge">0</span>)
+      </button>
+      <button class="dash-nav-btn" onclick="switchTab('tab-rewards', this)">
+        <i class="fa-solid fa-gift"></i> Sol-Points &amp; Rewards
+      </button>
+      <button class="dash-nav-btn" onclick="switchTab('tab-profile', this)">
+        <i class="fa-solid fa-user-gear"></i> Skin Profile &amp; Account
+      </button>
+      <button class="dash-nav-btn" onclick="switchTab('tab-addresses', this)">
+        <i class="fa-solid fa-location-dot"></i> Shipping &amp; Payment
+      </button>
+    </aside>
+
+    <!-- Tab Contents Container -->
+    <main>
+      <!-- TAB 1: Subscriptions -->
+      <div id="tab-subscriptions" class="dash-tab-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 2px;">Active Auto-Shield Subscriptions</h2>
+            <p style="font-size: 0.85rem; color: var(--c-carbon-muted); margin: 0;">Enjoy 15% off + complimentary summer gifts.</p>
+          </div>
+          <a href="subscriptions.html" class="btn-solvea btn-primary-solar btn-sm">+ Add New Formula</a>
+        </div>
+
+        <div style="background: var(--c-sun-cream); border-radius: var(--radius-lg); border: 1px solid var(--c-border); padding: 1.75rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; gap: 1.25rem; align-items: center;">
+              <img src="imaghe/pexels-mearlywan-307951439-16378484.jpg" alt="Hydro-Shield SPF 50+" class="dash-item-thumbnail" style="width: 75px; height: 75px; object-fit: contain; padding: 6px; border-radius: var(--radius-md); background: #FAF7F0; border: 1px solid var(--c-border); flex-shrink: 0;">
+              <div>
+                <span class="badge-clinical badge-solar" style="font-size: 0.68rem; margin-bottom: 3px;">Active Plan • Every 60 Days</span>
+                <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 2px;">Hydro-Shield Invisible Fluid SPF 50+</h3>
+                <div style="font-size: 0.82rem; color: var(--c-carbon-muted);">Qty: 1 Bottle • Next refill ship date: <strong>October 24, 2026</strong></div>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--c-solar-deep);">$28.90</div>
+              <div style="font-size: 0.74rem; color: #52B788; font-weight: 700;">You save 15% ($5.10)</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--c-border); flex-wrap: wrap;">
+            <button class="btn-solvea btn-carbon btn-sm" onclick="showToast('Refill skipped! Next shipment moved to December 24.')">
+              Skip Next Date
+            </button>
+            <button class="btn-solvea btn-outline-carbon btn-sm" onclick="showToast('Frequency updated to 30 Days.')">
+              Change Frequency
+            </button>
+            <button class="btn-solvea btn-outline-carbon btn-sm" onclick="showToast('Subscription paused. You can reactivate anytime.')">
+              Pause Plan
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Orders -->
+      <div id="tab-orders" class="dash-tab-content" style="display: none;">
+        <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Recent Order Timeline</h2>
+        <p style="font-size: 0.85rem; color: var(--c-carbon-muted); margin-bottom: 2rem;">Track clinical shipments in real-time.</p>
+
+        <div style="background: var(--c-sun-cream); border-radius: var(--radius-lg); border: 1px solid var(--c-border); padding: 1.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--c-border); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+            <div>
+              <strong>Order #SOL-82910</strong>
+              <div style="font-size: 0.78rem; color: var(--c-carbon-muted);">Placed on Sept 28, 2026 • 2 Items ($61.20)</div>
+            </div>
+            <span class="badge-clinical badge-eco">In Transit (FedEx 2-Day)</span>
+          </div>
+
+          <!-- Timeline -->
+          <div class="order-status-timeline">
+            <div class="timeline-step completed">
+              <div class="timeline-dot"><i class="fa-solid fa-check"></i></div>
+              <div style="font-size: 0.74rem; font-weight: 700;">Formulated</div>
+            </div>
+            <div class="timeline-step completed">
+              <div class="timeline-dot"><i class="fa-solid fa-check"></i></div>
+              <div style="font-size: 0.74rem; font-weight: 700;">Packaged</div>
+            </div>
+            <div class="timeline-step active">
+              <div class="timeline-dot"><i class="fa-solid fa-truck"></i></div>
+              <div style="font-size: 0.74rem; font-weight: 700; color: var(--c-solar-deep);">Out for Delivery</div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-dot"><i class="fa-solid fa-house"></i></div>
+              <div style="font-size: 0.74rem; font-weight: 700; color: var(--c-carbon-muted);">Delivered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Saved Products (Wishlist) -->
+      <div id="tab-saved" class="dash-tab-content" style="display: none;">
+        <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Your Saved Routine Wishlist</h2>
+        <p style="font-size: 0.85rem; color: var(--c-carbon-muted); margin-bottom: 2rem;">Formulas you have saved for upcoming seasonal routines.</p>
+
+        <div class="product-grid" id="dashboard-wishlist-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- TAB 4: Rewards -->
+      <div id="tab-rewards" class="dash-tab-content" style="display: none;">
+        <div style="background: linear-gradient(135deg, var(--c-carbon) 0%, #2D2D27 100%); color: #fff; padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span class="badge-clinical badge-solar" style="margin-bottom: 0.5rem;">Sol-Rewards Club</span>
+            <h3 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 4px;">450 Available Sol-Points</h3>
+            <p style="font-size: 0.85rem; color: var(--c-carbon-light); margin: 0;">Earn 10 points for every $1 spent on photoprotection.</p>
+          </div>
+          <button class="btn-solvea btn-primary-solar btn-sm" onclick="showToast('100 Points added for completing daily UV check!')">+ Daily Check-In</button>
+        </div>
+
+        <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 1rem;">Redeemable Vouchers</h3>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div style="border: 1px solid var(--c-border); padding: 1.25rem; border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>$10 Off Next Order</strong>
+                <div style="font-size: 0.78rem; color: var(--c-carbon-muted);">Requires 300 points</div>
+              </div>
+              <button class="btn-solvea btn-carbon btn-sm" onclick="showToast('Code SOLVEA10 redeemed and added to your bag!')">Redeem</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div style="border: 1px solid var(--c-border); padding: 1.25rem; border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>Free Full-Size Cica Serum</strong>
+                <div style="font-size: 0.78rem; color: var(--c-carbon-muted);">Requires 500 points</div>
+              </div>
+              <button class="btn-solvea btn-outline-carbon btn-sm" disabled style="opacity: 0.5;">Need 50 pts</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: Skin Profile -->
+      <div id="tab-profile" class="dash-tab-content" style="display: none;">
+        <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Dermatological Skin Profile</h2>
+        <p style="font-size: 0.85rem; color: var(--c-carbon-muted); margin-bottom: 2rem;">Used by our algorithm to tailor your daily UV alerts.</p>
+
+        <form onsubmit="handleProfileSave(event)">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label style="font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; display: block;">Fitzpatrick Phototype</label>
+              <select style="width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--c-border); font-size: 0.88rem; background: #fff;">
+                <option selected>Type II (Fair / Light Peach)</option>
+                <option>Type I (Very Fair)</option>
+                <option>Type III (Medium / Olive)</option>
+                <option>Type IV (Olive / Mediterranean)</option>
+                <option>Type V (Brown / Rich Caramel)</option>
+                <option>Type VI (Deep Bronze)</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label style="font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; display: block;">Primary Skin Concern</label>
+              <select style="width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--c-border); font-size: 0.88rem; background: #fff;">
+                <option selected>Barrier Sensitivity &amp; Redness</option>
+                <option>Melasma &amp; Dark Spots</option>
+                <option>Oil Control &amp; Acne</option>
+                <option>Anti-Aging Fine Lines</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn-solvea btn-primary-solar btn-sm">Update Skin Profile</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- TAB 6: Addresses -->
+      <div id="tab-addresses" class="dash-tab-content" style="display: none;">
+        <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Stored Shipping &amp; Payment</h2>
+        <p style="font-size: 0.85rem; color: var(--c-carbon-muted); margin-bottom: 2rem;">Manage default checkout destinations.</p>
+
+        <div style="background: var(--c-sun-cream); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--c-border);">
+          <div style="font-size: 0.74rem; font-weight: 700; color: var(--c-solar-deep); text-transform: uppercase;">Default Shipping Address</div>
+          <strong style="font-size: 1rem; display: block; margin: 4px 0 2px;">Elena Vance</strong>
+          <div style="font-size: 0.86rem; color: var(--c-carbon-soft);">
+            742 Evergreen Terrace, Apt 4B<br>
+            San Diego, CA 92109, United States<br>
+            Phone: (619) 555-0192
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Universal Footer -->
+  <footer class="footer-main">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-title">SOLVÉA <span style="color: var(--c-solar-orange);">●</span></div>
+        <p class="footer-tagline">Protect Your Skin. Every Day.<br>Clinical Skincare × Modern Beauty × Clean Science.</p>
+        <div class="footer-social-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA X (Twitter)" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="SOLVÉA YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Formulations</div>
+        <ul class="footer-links">
+          <li><a href="shop.html">Face Sunscreens</a></li>
+          <li><a href="shop.html">Body &amp; Mist</a></li>
+          <li><a href="shop.html">Pure Mineral Zinc</a></li>
+          <li><a href="shop.html">Post-Sun Recovery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Intelligence</div>
+        <ul class="footer-links">
+          <li><a href="uv-guide.html">UV Index Guide</a></li>
+          <li><a href="skin-guide.html">Skin &amp; Sun Masterclass</a></li>
+          <li><a href="subscriptions.html">Auto-Shield Delivery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Client Support</div>
+        <ul class="footer-links">
+          <li><a href="dashboard.html">My Portal</a></li>
+          <li><a href="wholesale.html">Bulk &amp; Clinics</a></li>
+          <li><a href="contact.html">Concierge Desk</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Join The Routine</div>
+        <form onsubmit="handleNewsletter(event)">
+          <div class="footer-newsletter-box">
+            <input type="email" placeholder="Your email address" required class="footer-newsletter-input">
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 SOLVÉA Skincare Labs Inc. All rights reserved.</div>
+      <div>100% Ocean &amp; Reef-Safe Certified.</div>
+    </div>
+  </footer>
+
+  <!-- Universal Cart Drawer & Quiz Modal -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <i class="fa-solid fa-bag-shopping" style="color: var(--c-solar-deep);"></i>
+        <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Your Clean Routine Bag</h3>
+      </div>
+      <button data-close-cart style="background: none; border: none; font-size: 1.25rem; cursor: pointer;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-shipping-bar">
+      <div id="cart-shipping-msg">Add $45.00 more for Free Delivery</div>
+      <div class="cart-progress-wrap">
+        <div class="cart-progress-bar" id="cart-shipping-progress" style="width: 0%;"></div>
+      </div>
+    </div>
+    <div class="cart-items-body" id="cart-items-container"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal-val">$0.00</span>
+      </div>
+      <button class="btn-solvea btn-primary-solar w-100 btn-lg" onclick="showToast('Proceeding to Checkout...');">
+        Secure Checkout <i class="fa-solid fa-lock" style="font-size: 0.85rem;"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="quiz-modal-overlay" id="quiz-modal">
+    <div class="quiz-modal-box">
+      <button class="quiz-close-btn" id="quiz-close-btn">&times;</button>
+      <div class="quiz-progress-bar-wrap">
+        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+      </div>
+      <div id="quiz-content-area"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function switchTab(tabId, btnEl) {
+      document.querySelectorAll('.dash-tab-content').forEach(tab => tab.style.display = 'none');
+      document.querySelectorAll('.dash-nav-btn').forEach(btn => btn.classList.remove('active'));
+
+      const target = document.getElementById(tabId);
+      if (target) target.style.display = 'block';
+      if (btnEl) btnEl.classList.add('active');
+
+      if (tabId === 'tab-saved') {
+        renderWishlistTab();
+      }
+    }
+
+    function renderWishlistTab() {
+      const container = document.getElementById('dashboard-wishlist-grid');
+      if (!container) return;
+
+      const savedIds = SolveaState.wishlist;
+      const savedProducts = SOLVEA_DATA.products.filter(p => savedIds.includes(p.id));
+
+      if (savedProducts.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 3rem 1rem;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🤍</div>
+            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">No Saved Formulas Yet</h4>
+            <p style="font-size: 0.84rem; color: var(--c-carbon-muted); margin-bottom: 1.25rem;">Tap the heart icon on any product in our dispensary to save it to your routine.</p>
+            <a href="shop.html" class="btn-solvea btn-primary-solar btn-sm">Explore Formulas</a>
+          </div>
+        `;
+        return;
+      }
+
+      renderProductGrid(container, savedProducts);
+    }
+
+    let isRegisterMode = false;
+    let isLoggedOut = false;
+
+    function toggleDashboardAuth() {
+      isLoggedOut = !isLoggedOut;
+      const authContainer = document.getElementById('auth-view-container');
+      const welcomeStrip = document.getElementById('logged-in-view-strip');
+      const dashGrid = document.getElementById('main-dashboard-grid');
+
+      if (isLoggedOut) {
+        authContainer.style.display = 'block';
+        welcomeStrip.style.display = 'none';
+        dashGrid.style.display = 'none';
+        showToast('Logged out of session. Please sign in.');
+      } else {
+        authContainer.style.display = 'none';
+        welcomeStrip.style.display = 'block';
+        dashGrid.style.display = 'grid';
+        showToast('Signed in successfully! Welcome back, Elena.');
+      }
+    }
+
+    function toggleAuthMode() {
+      isRegisterMode = !isRegisterMode;
+      const title = document.getElementById('auth-card-title');
+      const sub = document.getElementById('auth-card-sub');
+      if (isRegisterMode) {
+        title.textContent = 'Create Your SOLVÉA Account';
+        sub.textContent = 'Unlock 15% off your first subscription + complimentary gifts.';
+      } else {
+        title.textContent = 'Sign In to Your Protocol';
+        sub.textContent = 'Access Auto-Shield refills, saved routines, and Sol-Points.';
+      }
+    }
+
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      toggleDashboardAuth();
+    }
+
+    function handleProfileSave(e) {
+      e.preventDefault();
+      showToast('Skin profile updated successfully!');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const mode = urlParams.get('mode');
+
+      if (mode === 'login' || mode === 'signin') {
+        isLoggedOut = true;
+        isRegisterMode = false;
+        document.getElementById('auth-view-container').style.display = 'block';
+        document.getElementById('logged-in-view-strip').style.display = 'none';
+        document.getElementById('main-dashboard-grid').style.display = 'none';
+        document.getElementById('auth-card-title').textContent = 'Sign In to Your Protocol';
+        document.getElementById('auth-card-sub').textContent = 'Access Auto-Shield refills, saved routines, and Sol-Points.';
+      } else if (mode === 'register' || mode === 'signup') {
+        isLoggedOut = true;
+        isRegisterMode = true;
+        document.getElementById('auth-view-container').style.display = 'block';
+        document.getElementById('logged-in-view-strip').style.display = 'none';
+        document.getElementById('main-dashboard-grid').style.display = 'none';
+        document.getElementById('auth-card-title').textContent = 'Create Your SOLVÉA Account';
+        document.getElementById('auth-card-sub').textContent = 'Unlock 15% off your first subscription + complimentary gifts.';
+      }
+
+      if (window.location.hash === '#saved') {
+        const savedBtn = document.querySelector('.dash-nav-btn:nth-child(3)');
+        if (savedBtn) switchTab('tab-saved', savedBtn);
+      }
+    });
+  </script>
+</body>
+</html>
